@@ -23,3 +23,7 @@ npm run dev
 -   Prettier + Eslint for the code quality
 
 The .env is in the repository only for demonstration purpose. It should not be included in regular project opened to the public.
+
+# Ready to try it ?
+
+Head to https://motivate-sigma.vercel.app/ to try the app !
