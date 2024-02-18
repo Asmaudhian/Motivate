@@ -1,4 +1,4 @@
-import { ChevronDown, X } from 'lucide-react';
+import { ChevronDown, Eraser, X } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/ui/command';
@@ -66,7 +66,13 @@ export function FilterCombobox() {
 					<CommandInput placeholder="Search teams..." />
 					<CommandEmpty>No team found.</CommandEmpty>
 					<CommandGroup>
-						<CommandItem key={'all'} onSelect={() => handleAll()}>
+						<CommandItem
+							key={'all'}
+							onSelect={() => handleAll()}
+							className={
+								teams.includes(groups.join(',').toLowerCase()) ? 'bg-secondary/20' : ''
+							}
+						>
 							<Checkbox
 								id={'all'}
 								checked={teams.includes(groups.join(',').toLowerCase())}
@@ -77,6 +83,7 @@ export function FilterCombobox() {
 						<DropdownMenuSeparator />
 						{groups.map((group) => (
 							<CommandItem
+								className={teams.includes(group.toLowerCase()) ? 'bg-secondary/20' : ''}
 								key={group}
 								value={group}
 								onSelect={(currentValue) => handleValues(currentValue)}
@@ -94,6 +101,7 @@ export function FilterCombobox() {
 				<DropdownMenuSeparator />
 				<div className="p-2">
 					<Button onClick={() => setTeams('')} variant="outline" className="w-full">
+						<Eraser className="mr-2 h-4 w-4" />
 						Clear Filters
 					</Button>
 				</div>
