@@ -8,6 +8,7 @@ import {
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[];
@@ -73,7 +74,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 						onClick={() => table.previousPage()}
 						disabled={!table.getCanPreviousPage()}
 					>
-						Previous
+						<ChevronLeft className="h-4 w-4" />
 					</Button>
 					{table.getPageOptions().map((_, index) => (
 						<Button
@@ -92,7 +93,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 						onClick={() => table.nextPage()}
 						disabled={!table.getCanNextPage()}
 					>
-						Next
+						<ChevronRight className="h-4 w-4" />
 					</Button>
 				</div>
 			)}

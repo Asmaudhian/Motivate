@@ -9,6 +9,6 @@ export type User = {
     last_login: number;
 }
 
-type Group = "QA Tester" | "Manager" | "Intern" | "Engineer";
+export type Group = "QA Tester" | "Manager" | "Intern" | "Engineer";
 
 type Access = "nomad" | "django" | "orange-money" | "zebra";

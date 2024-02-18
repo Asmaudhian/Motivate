@@ -8,7 +8,7 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { MoreHorizontal } from 'lucide-react';
+import { MoreHorizontal, Pencil, UserX, Users } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { timestampToDate } from '@/lib/utils';
 import UserCell from './UserCell';
@@ -27,7 +27,11 @@ export const columns: ColumnDef<User>[] = [
 			const group = row.original.groups[0];
 			if (!group) return;
 
-			return <Badge variant="outline">{group}</Badge>;
+			return (
+				<Badge variant="outline">
+					<Users className="mr-2 h-4 w-4" /> {group}
+				</Badge>
+			);
 		},
 	},
 	{
@@ -66,9 +70,13 @@ export const columns: ColumnDef<User>[] = [
 						</Button>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align="end">
-						<DropdownMenuItem>Edit user</DropdownMenuItem>
+						<DropdownMenuItem>
+							<Pencil className="mr-2 h-4 w-4" /> Edit user
+						</DropdownMenuItem>
 						<DropdownMenuSeparator />
-						<DropdownMenuItem className="text-destructive">Deactivate user</DropdownMenuItem>
+						<DropdownMenuItem className="text-destructive">
+							<UserX className="mr-2 h-4 w-4" /> Deactivate user
+						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>
 			);
